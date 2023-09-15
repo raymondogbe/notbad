@@ -23,6 +23,13 @@ pipeline {
                 //-v /var/lib/jenkins/workspace/test_main/index.html:/usr/local/apache2/htdocs/"
                 }
             }
+        stage('Deploy app to Container') {
+            steps {
+                // Copy the index.html to docker container
+              sh "docker cp /var/lib/jenkins/workspace/test_main/index.html notbad_web:/usr/local/apache2/htdocs/"
+                //-v /var/lib/jenkins/workspace/test_main/index.html:/usr/local/apache2/htdocs/"
+                }
+            }
     }
 
 }
