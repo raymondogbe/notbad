@@ -20,16 +20,13 @@ pipeline {
             steps {
                 // Run the Docker container from the built image
               sh "docker run -dit -p 8089:80 --name notbad_web httpd:2.4"
-                //-v /var/lib/jenkins/workspace/test_main/index.html:/usr/local/apache2/htdocs/"
                 }
             }
         
         stage('Deploy app to Production Container') {
             steps {
-                //input "Copy the index.html to docker container?"
-                //milestone(1)
+                //"Copy the index.html to docker container"
               sh "docker cp /var/lib/jenkins/workspace/test_main/index.html notbad_web:/usr/local/apache2/htdocs/"
-                //-v /var/lib/jenkins/workspace/test_main/index.html:/usr/local/apache2/htdocs/"
                 }
             }
         
