@@ -5,3 +5,4 @@ COPY index.html /usr/local/httpd/htdocs/
  
 # Port and set entry point for container 
 EXPOSE 80
+CMD ["bash", "-c"]
