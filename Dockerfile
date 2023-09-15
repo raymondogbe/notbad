@@ -1,14 +1,4 @@
-FROM httpd:latest
- 
-MAINTAINER Raymond
-LABEL Remarks="Simple webpage with httpd for Not bad ltd"
- 
-# Install httpd with less
-RUN yum -y update && \
-yum -y install httpd && \
-systemctl start httpd && \
-systemctl enable httpd && \
-yum clean all
+FROM httpd:2.4
  
 # Sample index.html for test 
 COPY index.html /usr/local/httpd/htdocs/
