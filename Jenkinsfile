@@ -23,20 +23,6 @@ pipeline {
                 //-v /var/lib/jenkins/workspace/test_main/index.html:/usr/local/apache2/htdocs/"
                 }
             }
-        stage('Test your connection') {
-            steps {
-                script {
-                    def url = 'http://54.177.37.216:8089/'
-                    def response = sh(script: "curl -s -o /dev/null -w '%{http_code}' $url", returnStatus: true).trim()
-                    if (response == '200') {
-                        echo "HTTP connection to $url is successful. Status code: $response"
-                    } else {
-                        error "HTTP connection to $url failed. Status code: $response"
-                    }
-                }
-            }
-        }
-        
         
         stage('Deploy app to Production Container') {
             steps {
